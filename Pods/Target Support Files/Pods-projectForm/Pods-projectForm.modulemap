@@ -1,0 +1,6 @@
+framework module Pods_projectForm {
+  umbrella header "Pods-projectForm-umbrella.h"
+
+  export *
+  module * { export * }
+}
