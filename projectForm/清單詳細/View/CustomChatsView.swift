@@ -24,6 +24,7 @@ class CustomChatsView: UIView {
             pieChartView = PieChartView()
             //分類的文字顏色
             pieChartView.legend.textColor = .black
+            pieChartView.legend.formSize = 20
             self.addSubview(pieChartView)
             pieChartView.translatesAutoresizingMaskIntoConstraints = false
         }
