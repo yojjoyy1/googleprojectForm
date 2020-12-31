@@ -30,7 +30,7 @@ class HomeCollectionViewCell: UICollectionViewCell {
             let leading = NSLayoutConstraint(item: imgV, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1.0, constant: 0)
             let trailing = NSLayoutConstraint(item: imgV, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1.0, constant: 0)
             let top = NSLayoutConstraint(item: imgV, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1.0, constant: 0)
-            let height = NSLayoutConstraint(item: imgV, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1.0, constant: self.frame.size.height * 0.6)
+            let height = NSLayoutConstraint(item: imgV, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1.0, constant: self.frame.size.height * 0.5)
             self.addConstraints([leading,trailing,top,height])
         }
         if formNameLabel == nil{

@@ -37,7 +37,10 @@ class AddFormViewController: UIViewController {
                 print("error:\(error?.localizedDescription)")
             }else{
                 do{
-                    self.navigationController?.popViewController(animated: true)
+                    mainQueue.async {
+                        self.hideIndicator()
+                        self.navigationController?.popViewController(animated: true)
+                    }
                     let json = try JSONSerialization.jsonObject(with: data!, options: [])
                     print("json:\(json)")
                 }catch{

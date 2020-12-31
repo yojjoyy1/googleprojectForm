@@ -22,7 +22,7 @@ struct ApiModel {
             request.httpMethod = "POST"
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
             do{
-                print("pars:\(pars)")
+//                print("pars:\(pars)")
                 let jsonData = try JSONSerialization.data(withJSONObject: pars!, options: [])
                 request.httpBody = jsonData
             }catch{

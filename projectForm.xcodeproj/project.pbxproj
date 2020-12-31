@@ -10,6 +10,9 @@
 		484D38BFD39B9C0B1CD58928 /* Pods_projectForm_projectFormUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8B4A19DE6FAE83232D53A09 /* Pods_projectForm_projectFormUITests.framework */; };
 		617B0C886FC39A1BB6FB2BAD /* Pods_projectFormTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34BB5159B13E21D37C7C17F9 /* Pods_projectFormTests.framework */; };
 		6940E4A3259B71A600E5B3EC /* form.png in Resources */ = {isa = PBXBuildFile; fileRef = 6940E4A2259B71A600E5B3EC /* form.png */; };
+		6940E4A5259DC24100E5B3EC /* FormDetailTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6940E4A4259DC24100E5B3EC /* FormDetailTableView.swift */; };
+		6940E4A7259DC2EA00E5B3EC /* FormDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6940E4A6259DC2EA00E5B3EC /* FormDetailTableViewCell.swift */; };
+		6940E4A9259DE1FA00E5B3EC /* sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6940E4A8259DE1FA00E5B3EC /* sound.mp3 */; };
 		6997101C25911302005260DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6997101B25911302005260DF /* AppDelegate.swift */; };
 		6997102025911302005260DF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6997101F25911302005260DF /* ViewController.swift */; };
 		6997102325911302005260DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6997102125911302005260DF /* Main.storyboard */; };
@@ -66,6 +69,9 @@
 		3C4B289ACA0A12F55A4E5D88 /* Pods-projectForm-projectFormUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-projectForm-projectFormUITests.release.xcconfig"; path = "Target Support Files/Pods-projectForm-projectFormUITests/Pods-projectForm-projectFormUITests.release.xcconfig"; sourceTree = "<group>"; };
 		4DBBAA04177F843F490FB702 /* Pods-projectForm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-projectForm.debug.xcconfig"; path = "Target Support Files/Pods-projectForm/Pods-projectForm.debug.xcconfig"; sourceTree = "<group>"; };
 		6940E4A2259B71A600E5B3EC /* form.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = form.png; sourceTree = "<group>"; };
+		6940E4A4259DC24100E5B3EC /* FormDetailTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormDetailTableView.swift; sourceTree = "<group>"; };
+		6940E4A6259DC2EA00E5B3EC /* FormDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormDetailTableViewCell.swift; sourceTree = "<group>"; };
+		6940E4A8259DE1FA00E5B3EC /* sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sound.mp3; sourceTree = "<group>"; };
 		6997101825911302005260DF /* 表單器.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "表單器.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6997101B25911302005260DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6997101F25911302005260DF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -233,6 +239,7 @@
 		69A7462E2597BFB800E726FB /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				6940E4A8259DE1FA00E5B3EC /* sound.mp3 */,
 				6940E4A2259B71A600E5B3EC /* form.png */,
 				69A746762598FCAD00E726FB /* send.png */,
 				69A7466C2598DE1300E726FB /* error.png */,
@@ -298,6 +305,8 @@
 				69A74695259C46DC00E726FB /* CustomChatsView.swift */,
 				69A7469D259C47CA00E726FB /* FormDetailViewController.swift */,
 				69A746A8259CF8F600E726FB /* FormDetailScrollView.swift */,
+				6940E4A4259DC24100E5B3EC /* FormDetailTableView.swift */,
+				6940E4A6259DC2EA00E5B3EC /* FormDetailTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -437,6 +446,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6997102825911309005260DF /* LaunchScreen.storyboard in Resources */,
+				6940E4A9259DE1FA00E5B3EC /* sound.mp3 in Resources */,
 				6997102525911309005260DF /* Assets.xcassets in Resources */,
 				69A7466D2598DE1300E726FB /* error.png in Resources */,
 				69A746772598FCAD00E726FB /* send.png in Resources */,
@@ -581,6 +591,7 @@
 				69A7464825986A4200E726FB /* AddFormViewModel.swift in Sources */,
 				6997101C25911302005260DF /* AppDelegate.swift in Sources */,
 				69A74696259C46DC00E726FB /* CustomChatsView.swift in Sources */,
+				6940E4A7259DC2EA00E5B3EC /* FormDetailTableViewCell.swift in Sources */,
 				6997105925912B8E005260DF /* HomeCollectionViewCell.swift in Sources */,
 				69A745D42591B67200E726FB /* ApiModel.swift in Sources */,
 				69A7461E2597938200E726FB /* Hud.swift in Sources */,
@@ -588,6 +599,7 @@
 				6997106125912BBD005260DF /* HomeCollectionView.swift in Sources */,
 				69A746AF259CFA5200E726FB /* FormDetailViewModel.swift in Sources */,
 				69A746722598F2B300E726FB /* MyTextField.swift in Sources */,
+				6940E4A5259DC24100E5B3EC /* FormDetailTableView.swift in Sources */,
 				69A7463D25985DB800E726FB /* AddFormTableView.swift in Sources */,
 				69A745DA2591BD3500E726FB /* ViewModel.swift in Sources */,
 				69A7469E259C47CA00E726FB /* FormDetailViewController.swift in Sources */,

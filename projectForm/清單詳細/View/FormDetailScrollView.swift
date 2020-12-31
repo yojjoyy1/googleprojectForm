@@ -9,9 +9,9 @@ import UIKit
 
 class FormDetailScrollView: UIScrollView {
 
-    func setUp(mainView:UIView){
-        self.frame = mainView.frame
-        self.contentSize = CGSize(width: mainView.frame.size.width * 2, height: mainView.frame.size.height)
+    func setUp(mainView:UIView,rect:CGRect){
+        self.frame = rect
+        self.contentSize = CGSize(width: rect.size.width * 2, height: rect.size.height)
         self.isScrollEnabled = true
         self.isDirectionalLockEnabled = true
         self.bounces = true

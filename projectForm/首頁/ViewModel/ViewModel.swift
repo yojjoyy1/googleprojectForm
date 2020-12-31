@@ -19,7 +19,9 @@ extension UIViewController{
         
     }
     func hideIndicator() {
-        MBProgressHUD.hide(for: self.navigationController!.view, animated: true)
+        if self.navigationController != nil{
+            MBProgressHUD.hide(for: self.navigationController!.view, animated: true)
+        }
     }
 }
 protocol ViewModelDelegate{
@@ -91,7 +93,7 @@ class ViewModel:NSObject,ViewModelInterface,UICollectionViewDelegate,UICollectio
                 do{
                     let json = try JSONSerialization.jsonObject(with: resData!, options: [])
                     let arr = json as! NSArray
-                    print("getFormList google回應:\(arr)")
+//                    print("getFormList google回應:\(arr)")
                     self.getGoogleForm(arr: arr, myType: 2)
                 }catch{
                     let str = String.init(data: resData!, encoding: .utf8)
@@ -101,21 +103,28 @@ class ViewModel:NSObject,ViewModelInterface,UICollectionViewDelegate,UICollectio
         }
     }
     func setFormDetailModel(modelArr:[GoogleFormModel]){
-        for i in 0...modelArr.count - 1{
-            let modelDic = modelArr[i].convertToDict()
-            let wOder = modelDic!["wOder"] as! String
-            let size = modelDic!["size"] as! String
-            let count = modelDic!["count"] as! String
-            let name = modelDic!["name"] as! String
-            let phone = modelDic!["phone"] as! String
-            let address = modelDic!["address"] as! String
-            let email = modelDic!["email"] as! String
-            let remark = modelDic!["remark"] as! String
-            let formDetail = FormDetailModel(wOder: wOder, size: size, count: count, name: name, email: email, remark: remark, phone: phone, address: address)
-            FormDetailViewController.sharedInstance.setDetailModel(setModel: formDetail)
-        }
-        mainQueue.async {
-            self.viewModelBindVc.navigationController?.pushViewController(FormDetailViewController.sharedInstance, animated: true)
+        if modelArr.count > 0{
+            for i in 0...modelArr.count - 1{
+                let modelDic = modelArr[i].convertToDict()
+                let wOder = modelDic!["wOder"] as! String
+                let size = modelDic!["size"] as! String
+                let count = modelDic!["count"] as! String
+                let name = modelDic!["name"] as! String
+                let phone = modelDic!["phone"] as! String
+                let address = modelDic!["address"] as! String
+                let email = modelDic!["email"] as! String
+                let remark = modelDic!["remark"] as! String
+                let formDetail = FormDetailModel(wOder: wOder, size: size, count: count, name: name, email: email, remark: remark, phone: phone, address: address)
+                FormDetailViewController.sharedInstance.setDetailModel(setModel: formDetail)
+            }
+            mainQueue.async {
+                self.viewModelBindVc.navigationController?.pushViewController(FormDetailViewController.sharedInstance, animated: true)
+            }
+        }else{
+            let alertC = UIAlertController(title: "", message: "無人提交訂單", preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "確定", style: .default, handler: nil)
+            alertC.addAction(alertAction)
+            viewModelBindVc.present(alertC, animated: true, completion: nil)
         }
     }
     func jumpFormAction(mode:GoogleFormModel){
@@ -130,19 +139,21 @@ class ViewModel:NSObject,ViewModelInterface,UICollectionViewDelegate,UICollectio
             if resErr != nil{
                 print("resErr:\(resErr!.localizedDescription)")
                 mainQueue.async {
+                    self.homeCollV.refreshControl?.endRefreshing()
                     self.viewModelBindVc.hideIndicator()
                 }
             }else{
                 do{
                     let json = try JSONSerialization.jsonObject(with: data!, options: [])
                     let arr = json as! NSArray
-                    print("google回應:\(arr)")
+//                    print("google回應:\(arr)")
                     self.getGoogleForm(arr: arr, myType: 0)
                 }catch{
                     let str = String.init(data: data!, encoding: .utf8)
                     print("ViewModel回應解析錯誤 err:\(error.localizedDescription) str:\(str)")
                     mainQueue.async {
                         self.viewModelBindVc.hideIndicator()
+                        self.homeCollV.refreshControl?.endRefreshing()
                     }
                 }
             }
@@ -207,7 +218,7 @@ class ViewModel:NSObject,ViewModelInterface,UICollectionViewDelegate,UICollectio
                     }else if key as! String == "電話"{
                         phone = (value as! String)
                     }else if key as! String == "信箱"{
-                        print("email:\(value)")
+//                        print("email:\(value)")
                         email = (value as! String)
                     }else if key as! String == "地址"{
                         address = (value as! String)
@@ -234,6 +245,7 @@ class ViewModel:NSObject,ViewModelInterface,UICollectionViewDelegate,UICollectio
                 self.viewModelBindVc.hideIndicator()
                 self.delegate?.googleResponse(modelArr: self.dataArr)
             }else if myType == 0{
+                self.homeCollV.refreshControl?.endRefreshing()
                 self.viewModelBindVc.hideIndicator()
 //                print("currentFormDataArr:\(self.currentFormDataArr)")
                 self.setFormDetailModel(modelArr: self.currentFormDataArr)
