@@ -118,6 +118,9 @@ class ViewModel:NSObject,ViewModelInterface,UICollectionViewDelegate,UICollectio
             self.viewModelBindVc.navigationController?.pushViewController(FormDetailViewController.sharedInstance, animated: true)
         }
     }
+    func jumpFormAction(mode:GoogleFormModel){
+        UIApplication.shared.open(URL(string: mode.publishUrl!)!, options: [:], completionHandler: nil)
+    }
     //MARK:ViewModelInterface
     func getCurrentFormData(id:String){
         viewModelBindVc.showIndicator(withTitle: "正在搜尋...", description: "")
@@ -254,7 +257,7 @@ class ViewModel:NSObject,ViewModelInterface,UICollectionViewDelegate,UICollectio
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeCollectionViewCell", for: indexPath) as! HomeCollectionViewCell
         let data = dataArr[indexPath.row]
 //        print("data:\(data)")
-        cell.setUp(text: "\(data.formName!)\n\(data.date!)")
+        cell.setUp(text: "\(data.formName!)\n\(data.date!)",model: data)
         return cell
     }
 }

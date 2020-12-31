@@ -16,6 +16,7 @@ class ViewController: UIViewController,ViewModelDelegate {
         ViewModel.sharedInstance.bindCollV(view: self.view, vc: self)
         self.view.backgroundColor = .white
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "add"), style: .plain, target: ViewModel.sharedInstance, action: #selector(ViewModel.sharedInstance.goAddFormPage))
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .done, target: self, action: #selector(backAction))
         self.navigationItem.rightBarButtonItem?.tintColor = .red
         ViewModel.sharedInstance.getFormList()
     }
@@ -23,6 +24,9 @@ class ViewController: UIViewController,ViewModelDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 //        ViewModel.sharedInstance.postType0()
+    }
+    @objc func backAction(){
+        self.navigationController?.popViewController(animated: true)
     }
     //MARK:ViewModelDelegate
     func googleResponse(modelArr: [GoogleFormModel]) {

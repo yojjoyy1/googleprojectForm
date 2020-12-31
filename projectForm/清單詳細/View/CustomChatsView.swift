@@ -12,14 +12,16 @@ class CustomChatsView: UIView {
     let goals = [6, 8, 26, 30, 8, 10]
     var pieChartView:PieChartView!
 //    static let sharedInstance = CustomChatsView()
-    func setUp(mainView:UIView){
-        mainView.addSubview(self)
-        self.translatesAutoresizingMaskIntoConstraints = false
-        let leading = NSLayoutConstraint(item: self, attribute: .leading, relatedBy: .equal, toItem: mainView, attribute: .leading, multiplier: 1.0, constant: 10)
-        let top = NSLayoutConstraint(item: self, attribute: .top, relatedBy: .equal, toItem: mainView, attribute: .top, multiplier: 1.0, constant: 10)
-        let bottom = NSLayoutConstraint(item: self, attribute: .bottom, relatedBy: .equal, toItem: mainView, attribute: .bottom, multiplier: 1.0, constant: -10)
-        let trailing = NSLayoutConstraint(item: self, attribute: .trailing, relatedBy: .equal, toItem: mainView, attribute: .trailing, multiplier: 1.0, constant: -10)
-        mainView.addConstraints([leading,top,bottom,trailing])
+    func setUp(mainView:FormDetailScrollView){
+        self.frame = mainView.frame
+//        print("mainView:\(mainView.frame)")
+//        mainView.addSubview(self)
+//        self.translatesAutoresizingMaskIntoConstraints = false
+//        let leading = NSLayoutConstraint(item: self, attribute: .leading, relatedBy: .equal, toItem: mainView, attribute: .leading, multiplier: 1.0, constant: 10)
+//        let top = NSLayoutConstraint(item: self, attribute: .top, relatedBy: .equal, toItem: mainView, attribute: .top, multiplier: 1.0, constant: 10)
+//        let bottom = NSLayoutConstraint(item: self, attribute: .bottom, relatedBy: .equal, toItem: mainView, attribute: .bottom, multiplier: 1.0, constant: -10)
+//        let trailing = NSLayoutConstraint(item: self, attribute: .trailing, relatedBy: .equal, toItem: mainView, attribute: .trailing, multiplier: 1.0, constant: -10)
+//        mainView.addConstraints([leading,top,bottom,trailing])
         if pieChartView == nil{
             pieChartView = PieChartView()
             //分類的文字顏色
@@ -33,9 +35,10 @@ class CustomChatsView: UIView {
         let piebottom = NSLayoutConstraint(item: pieChartView, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1.0, constant: 0)
         let pietrailing = NSLayoutConstraint(item: pieChartView, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1.0, constant: 0)
         self.addConstraints([pieleading,pietop,piebottom,pietrailing])
-        customizeChart(dataPoints: players, values: goals.map({Double($0)}))
+//        customizeChart(dataPoints: players, values: goals.map({Double($0)}))
     }
     func customizeChart(dataPoints: [String], values: [Double]){
+//        print("customizeChart dataPoints:\(dataPoints) values:\(values)")
         // 1. Set ChartDataEntry
         var dataEntries: [ChartDataEntry] = []
         for i in 0..<dataPoints.count {

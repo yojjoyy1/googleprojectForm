@@ -37,6 +37,8 @@
 		69A74696259C46DC00E726FB /* CustomChatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A74695259C46DC00E726FB /* CustomChatsView.swift */; };
 		69A7469E259C47CA00E726FB /* FormDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A7469D259C47CA00E726FB /* FormDetailViewController.swift */; };
 		69A746A4259C481400E726FB /* FormDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A746A3259C481400E726FB /* FormDetailModel.swift */; };
+		69A746A9259CF8F600E726FB /* FormDetailScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A746A8259CF8F600E726FB /* FormDetailScrollView.swift */; };
+		69A746AF259CFA5200E726FB /* FormDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A746AE259CFA5200E726FB /* FormDetailViewModel.swift */; };
 		A92D32B713C185474EFA72EA /* Pods_projectForm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCB47ECC5C402C47DE80D81F /* Pods_projectForm.framework */; };
 /* End PBXBuildFile section */
 
@@ -96,6 +98,8 @@
 		69A74695259C46DC00E726FB /* CustomChatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomChatsView.swift; sourceTree = "<group>"; };
 		69A7469D259C47CA00E726FB /* FormDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormDetailViewController.swift; sourceTree = "<group>"; };
 		69A746A3259C481400E726FB /* FormDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormDetailModel.swift; sourceTree = "<group>"; };
+		69A746A8259CF8F600E726FB /* FormDetailScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormDetailScrollView.swift; sourceTree = "<group>"; };
+		69A746AE259CFA5200E726FB /* FormDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormDetailViewModel.swift; sourceTree = "<group>"; };
 		911A2EBA966763D20E3EB09E /* Pods-projectForm-projectFormUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-projectForm-projectFormUITests.debug.xcconfig"; path = "Target Support Files/Pods-projectForm-projectFormUITests/Pods-projectForm-projectFormUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CCB47ECC5C402C47DE80D81F /* Pods_projectForm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_projectForm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8B4A19DE6FAE83232D53A09 /* Pods_projectForm_projectFormUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_projectForm_projectFormUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -281,6 +285,7 @@
 		69A74693259C469400E726FB /* 清單詳細 */ = {
 			isa = PBXGroup;
 			children = (
+				69A746AD259CFA3C00E726FB /* ViewModel */,
 				69A746A2259C480200E726FB /* Model */,
 				69A74694259C46A800E726FB /* View */,
 			);
@@ -292,6 +297,7 @@
 			children = (
 				69A74695259C46DC00E726FB /* CustomChatsView.swift */,
 				69A7469D259C47CA00E726FB /* FormDetailViewController.swift */,
+				69A746A8259CF8F600E726FB /* FormDetailScrollView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -302,6 +308,14 @@
 				69A746A3259C481400E726FB /* FormDetailModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		69A746AD259CFA3C00E726FB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				69A746AE259CFA5200E726FB /* FormDetailViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		732BF40FE46C2E3753B3FFA7 /* Frameworks */ = {
@@ -561,6 +575,7 @@
 				69A746632598903000E726FB /* AddFormProductCollectionViewCell.swift in Sources */,
 				6997102025911302005260DF /* ViewController.swift in Sources */,
 				69A7467C259902BD00E726FB /* MyPickViewModel.swift in Sources */,
+				69A746A9259CF8F600E726FB /* FormDetailScrollView.swift in Sources */,
 				69A7465125986AC000E726FB /* AddFormModel.swift in Sources */,
 				6997106625912E1C005260DF /* GoogleFormModel.swift in Sources */,
 				69A7464825986A4200E726FB /* AddFormViewModel.swift in Sources */,
@@ -571,6 +586,7 @@
 				69A7461E2597938200E726FB /* Hud.swift in Sources */,
 				69A746422598677E00E726FB /* AddFormTableViewCell.swift in Sources */,
 				6997106125912BBD005260DF /* HomeCollectionView.swift in Sources */,
+				69A746AF259CFA5200E726FB /* FormDetailViewModel.swift in Sources */,
 				69A746722598F2B300E726FB /* MyTextField.swift in Sources */,
 				69A7463D25985DB800E726FB /* AddFormTableView.swift in Sources */,
 				69A745DA2591BD3500E726FB /* ViewModel.swift in Sources */,
